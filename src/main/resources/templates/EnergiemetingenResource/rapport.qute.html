@@ -1,0 +1,27 @@
+{@org.example.Energiemetingen[] metingen}
+<html>
+<body>
+<a href="http://localhost:7777/welkom"><< Ga terug</a>
+<p>Mijn verbruik:</p>
+<div id="verbruiklijst">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Verbruik (kWh)</th>
+            <th>Opwek (kWh)</th>
+            <th>Datum</th>
+        </tr>
+        </thead>
+        {#for i in metingen}
+        <tr>
+            <td>{i.huishoudenID}</td>
+            <td>{i.verbruikKWh}</td>
+            <td>{i.opwekKWh}</td>
+            <td>{i.datum}</td>
+        </tr>
+        {/for}
+    </table>
+</div>
+</body>
+</html>

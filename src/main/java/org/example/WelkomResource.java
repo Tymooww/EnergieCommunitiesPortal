@@ -2,7 +2,6 @@ package org.example;
 
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
-import io.quarkus.security.Authenticated;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
@@ -10,21 +9,21 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.SecurityContext;
 
-@Authenticated
-@Path("/wiebenik")
-public class Whoami {
+//@Authenticated
+@Path("/welkom")
+public class WelkomResource {
     //
     @Inject
     SecurityContext context;
 
     @Inject
-    Template wiebenik;
+    Template welkom;
 
     @GET
     @Produces(MediaType.TEXT_HTML)
-    public TemplateInstance get(){
+    public TemplateInstance get() {
         //
         String username = context.getUserPrincipal().getName();
-        return wiebenik.data("naam", username);
+        return welkom.data("naam", username);
     }
 }
