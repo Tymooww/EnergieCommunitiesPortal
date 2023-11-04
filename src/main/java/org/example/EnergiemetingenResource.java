@@ -1,6 +1,7 @@
 package org.example;
 
 import io.quarkus.qute.CheckedTemplate;
+import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 import io.smallrye.common.annotation.Blocking;
 import jakarta.inject.Inject;
@@ -22,6 +23,8 @@ public class EnergiemetingenResource {
         public static native TemplateInstance rapport(
                 List<Energiemetingen> metingen);
     }
+    //@Inject
+    //Template rapport;
 
     @Inject
     SecurityContext context;
