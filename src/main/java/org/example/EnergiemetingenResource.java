@@ -18,13 +18,12 @@ import java.util.List;
 @Blocking
 public class EnergiemetingenResource {
     //
-    @CheckedTemplate
+    /*@CheckedTemplate
     public static class Templates {
-        public static native TemplateInstance rapport(
-                List<Energiemetingen> metingen);
-    }
-    //@Inject
-    //Template rapport;
+        public static native TemplateInstance rapport(List<Energiemetingen> metingen);
+    }*/
+    @Inject
+    Template rapport;
 
     @Inject
     SecurityContext context;
@@ -38,6 +37,6 @@ public class EnergiemetingenResource {
         //
         String username = context.getUserPrincipal().getName();
         List<Energiemetingen> metingen = client.getEnergiemetingen(username.substring(username.length() - 1));
-        return Templates.rapport(metingen);
+        return rapport.data("metingen", metingen);
     }
 }

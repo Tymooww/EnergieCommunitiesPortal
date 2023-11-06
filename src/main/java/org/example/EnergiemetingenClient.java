@@ -11,10 +11,10 @@ import java.util.List;
 
 @RegisterRestClient(baseUri = "http://localhost:8080")
 @AccessToken
-@Path("/api/rapport")
+@Path("/api/metingen")
 public interface EnergiemetingenClient {
 
     @GET
-    @Path("/totaal/{id}")
+    @Path("/{id}")
     List<Energiemetingen> getEnergiemetingen(@PathParam("id") String id);
 }
